@@ -1,0 +1,55 @@
+[package]
+name = "traversals"
+
+edition = "2021"
+version = "0.1.0"
+
+[lints.rust]
+unused_qualifications = { level = "warn", priority = 100 }
+
+[lints.rustdoc]
+all = { level = "warn", priority = 0 }
+
+[lints.clippy]
+all      = { level = "warn", priority = 0 }
+nursery  = { level = "warn", priority = 0 }
+pedantic = { level = "warn", priority = 0 }
+
+match_bool               = { level = "allow", priority = 100 }
+missing_errors_doc       = { level = "allow", priority = 100 }
+missing_panics_doc       = { level = "allow", priority = 100 }
+module_name_repetitions  = { level = "allow", priority = 100 }
+must_use_candidate       = { level = "allow", priority = 100 }
+option_if_let_else       = { level = "allow", priority = 100 }
+return_self_not_must_use = { level = "allow", priority = 100 }
+too_many_lines           = { level = "allow", priority = 100 }
+
+[dependencies]
+
+[profile.dev]
+opt-level = 0
+
+debug            = 0
+debug-assertions = true
+overflow-checks  = true
+panic            = "abort"
+strip            = "debuginfo"
+
+codegen-units = 256
+incremental   = true
+
+lto = false
+
+[profile.release]
+opt-level = 3
+
+debug            = 0
+debug-assertions = false
+overflow-checks  = false
+panic            = "abort"
+strip            = "debuginfo"
+
+codegen-units = 16
+incremental   = false
+
+lto = "thin"
