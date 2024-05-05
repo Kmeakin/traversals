@@ -57,7 +57,7 @@ implement `Iterator` for, like expression trees:
 #![feature(try_trait_v2)]
 use core::ops::Try;
 
-use crate::prelude::{Foldable, IntoFoldable};
+use traversals::prelude::{Foldable, IntoFoldable};
 
 #[derive(Copy, Clone)]
 pub enum Expr<'this> {

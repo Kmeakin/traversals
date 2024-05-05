@@ -5,8 +5,6 @@
 pub mod fold;
 pub mod foldable;
 
-mod examples;
-
 pub mod prelude {
     pub use core::convert::Infallible;
     pub use core::ops::ControlFlow::{Break, Continue};

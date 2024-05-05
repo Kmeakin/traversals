@@ -119,4 +119,21 @@ where
     {
         Iterator::fold(self.0, init, f)
     }
+
+    fn try_for_each<R, F>(&mut self, f: F) -> R
+    where
+        Self: Sized,
+        R: Try<Output = ()>,
+        F: FnMut(Self::Item) -> R,
+    {
+        Iterator::try_for_each(&mut self.0, f)
+    }
+
+    fn for_each<R, F>(mut self, f: F)
+    where
+        Self: Sized,
+        F: FnMut(Self::Item),
+    {
+        Iterator::for_each(&mut self.0, f);
+    }
 }
